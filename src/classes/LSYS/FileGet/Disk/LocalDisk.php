@@ -10,7 +10,7 @@ class LocalDisk extends Disk{
         if (!$this->_config->exist("dir"))return FALSE;
         $dir=rtrim($this->_config->get("dir"),"\\/")."/";
         $filepath=$dir.$file;
-        $this->_check_dir($this->_config->exist("safe_dir",[]),$filepath);
+        $this->_checkDir($this->_config->exist("safe_dir",[]),$filepath);
         if (!is_file($filepath))return null;
         return $filepath;
     }
@@ -19,7 +19,7 @@ class LocalDisk extends Disk{
         if (!$this->_config->exist("dir"))return FALSE;
         $dir=rtrim($this->_config->get("dir"),"\\/")."/";
         $filepath=$dir.$file;
-        $this->_check_dir($this->_config->exist("safe_dir",[]),$filepath);
+        $this->_checkDir($this->_config->exist("safe_dir",[]),$filepath);
         if (!is_file($filepath))return FALSE;
         $size = filesize($filepath);
         if ($size==0)return null;
@@ -27,9 +27,9 @@ class LocalDisk extends Disk{
             readfile($filepath);
             return true;
         }
-        $this->_send_name_header($name);
-        $this->_send_mime_header(mime_content_type($filepath));
-        $this->_send_range_header($size,$range);
+        $this->_sendNameHeader($name);
+        $this->_sendMimeHeader(mime_content_type($filepath));
+        $this->_sendRangeHeader($size,$range);
         if ($range==0){
             readfile($filepath);
         }else{//断点续传

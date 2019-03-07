@@ -2,7 +2,7 @@
 namespace LSYS\FileGet;
 use LSYS\Exception;
 trait Utils{
-    protected function _check_dir($safe_dir,&$filepath){
+    protected function _checkDir($safe_dir,&$filepath){
         if (empty($safe_dir))return;
         $filepath=realpath($filepath);
         if(!$filepath)return ;
@@ -16,7 +16,7 @@ trait Utils{
         }
         if(!$safe)throw new Exception(__("file can't access[:path]",array("path"=>$filepath)));
     }
-    protected function _send_name_header($name,$user_agent=null){
+    protected function _sendNameHeader($name,$user_agent=null){
         if (headers_sent())return $this;
         $ua = isset($_SERVER['HTTP_USER_AGENT'])?isset($_SERVER['HTTP_USER_AGENT']):'';
         $user_agent=$user_agent?$user_agent:$ua;
@@ -29,7 +29,7 @@ trait Utils{
         }
         return $this;
     }
-    protected function _send_range_header($size,&$range){
+    protected function _sendRangeHeader($size,&$range){
         if (headers_sent()||$size==0)return $this;
         $size2 = $size-1;
         $range = 0;
@@ -48,7 +48,7 @@ trait Utils{
         header('Accenpt-Ranges: bytes');
         return $range;
     }
-    protected function _send_mime_header($mine){
+    protected function _sendMimeHeader($mine){
         if (headers_sent())return $this;
         header("Content-type: {$mine};");
     }

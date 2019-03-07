@@ -57,7 +57,7 @@ class RemoteDisk extends Disk{
         if (!$file)return $file;
         $timeout=$this->_config->get("timeout");
         $connect_timeout=$this->_config->get("connect_timeout");
-        $this->_send_name_header($name);
+        $this->_sendNameHeader($name);
         $ch=curl_init($file);
         if ($timeout)curl_setopt($ch, CURLOPT_TIMEOUT,$timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);

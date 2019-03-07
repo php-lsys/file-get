@@ -1,7 +1,7 @@
 <?php
 namespace LSYS\FileGet;
 /**
- * @method \LSYS\FileGet fileget($config=null)
+ * @method \LSYS\FileGet fileGet($config=null)
  */
 class DI extends \LSYS\DI{
     public static $config = 'fileget.local_disk';
@@ -10,7 +10,7 @@ class DI extends \LSYS\DI{
      */
     public static function get(){
         $di=parent::get();
-        !isset($di->fileget)&&$di->fileget(new \LSYS\DI\ShareCallback(function($config=null){
+        !isset($di->fileGet)&&$di->fileGet(new \LSYS\DI\ShareCallback(function($config=null){
             return $config?$config:self::$config;
         },function($config=null){
             $config=\LSYS\Config\DI::get()->config($config?$config:self::$config);
