@@ -45,7 +45,7 @@ class RemoteDisk extends Disk{
             return strlen($str);
         });
         if (!curl_exec($ch)){
-            throw new Exception(__("curl error:[:msg]",array("msg"=>curl_error($ch))),curl_errno($ch));
+            throw new Exception(__("curl error:[:msg]",array(":msg"=>curl_error($ch))),curl_errno($ch));
         }
         @fclose($fopen);
         $this->_cache_file[]=$filename;
@@ -77,7 +77,7 @@ class RemoteDisk extends Disk{
             return strlen($str);
         });
         if(!curl_exec($ch)){
-            throw new Exception(__("curl error:[:msg]",array("msg"=>curl_error($ch))),curl_errno($ch));
+            throw new Exception(__("curl error:[:msg]",array(":msg"=>curl_error($ch))),curl_errno($ch));
         }
         return true;
     }

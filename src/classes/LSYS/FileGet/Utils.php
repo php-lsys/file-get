@@ -14,7 +14,7 @@ trait Utils{
                 break;
             }
         }
-        if(!$safe)throw new Exception(__("file can't access[:path]",array("path"=>$filepath)));
+        if(!$safe)throw new Exception(__("file can't access[:path]",array(":path"=>$filepath)));
     }
     protected function _sendNameHeader($name,$user_agent=null){
         if (headers_sent())return $this;
