@@ -17,4 +17,15 @@ return array(
        // "connect_timeout"=>'50',
         "url"=>'http://localhost/filemgr/lfile-get/dome/file/',
     ),
+	 "gridfs"=>array(//
+        //"db"=>'test',
+        "url"=>'http://localhost/filemgr/lfile-get-mongodb/dome/read_gridfs.php?id=',
+        "dir"=>"./assets/",
+    ),
+    "mongodb"=>array(//
+      //  "db"=>'test',
+      //  "space"=>'test',
+        "url"=>'http://localhost/filemgr/lfile-get-mongodb/dome/read_mongodb.php?id=',
+        "dir"=>"./assets/",
+    ),
 );

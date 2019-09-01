@@ -6,10 +6,15 @@
 	"description" : "lsys module file get",
 	"autoload" : {
 		"psr-4" : {
-			"LSYS\\" : "src/classes/LSYS/"
+			"LSYS\\" : [
+				"src/common/classes/LSYS/",
+				"src/driver-alioss/classes/LSYS/",
+				"src/driver-fastdfs/classes/LSYS/",
+				"src/driver-mongodb/classes/LSYS/"
+			]
 		},
 		"files" : [
-			"src/Bootstarp.php"
+			"src/common/Bootstarp.php"
 		]
 	},
 	"require" : {
