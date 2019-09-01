@@ -20,5 +20,10 @@
 	"require" : {
 		"php" : ">=5.5",
 		"lsys/config" : "~2.1.0"
+	},
+	"suggest": {
+		"aliyuncs/oss-sdk-php" : "v2.3.0",
+		"lsys/fastdfs" : "~2.1.0",
+		"lsys/mongodb" : "~2.1.0"
 	}
 }
