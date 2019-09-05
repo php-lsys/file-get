@@ -2,7 +2,6 @@
 	"name" : "lsys/file-get",
 	"type" : "library",
 	"license" : "Apache-2.0",
-
 	"description" : "lsys module file get",
 	"autoload" : {
 		"psr-4" : {
