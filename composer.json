@@ -17,11 +17,11 @@
 		]
 	},
 	"require" : {
-		"lsys/config" : "~0.0.0"
+		"lsys/config" : "~0.0.1"
 	},
 	"suggest": {
 		"aliyuncs/oss-sdk-php" : "v2.3.0",
-		"lsys/fastdfs" : "~0.0.0",
-		"lsys/mongodb" : "~0.0.0"
+		"lsys/fastdfs" : "~0.0.1",
+		"lsys/mongodb" : "~0.0.1"
 	}
 }
