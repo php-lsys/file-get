@@ -26,11 +26,11 @@ class AliOSS implements FileGet{
         }
         $this->_oss=$ossClient;
     }
-    public function url($file){
+    public function url(?string $file){
         if (empty($file))return null;
         return "http://{$this->_bucket}.oss.aliyuncs.com/{$file}";
     }
-    public function download($file){
+    public function download(?string $file){
         if (empty($file))return null;
         $dir=$this->_config->get("cache_dir",sys_get_temp_dir());
         $filename=$dir."/".uniqid();
@@ -41,10 +41,10 @@ class AliOSS implements FileGet{
         );
         $this->_oss->getObject($this->_bucket,$filename, $options);
         $this->_clear_file[]=$filename;
-        return $fullname;
+        return $filename;
     }
-    public function output($file,$name=null){
-        if (empty($file))return null;
+    public function output(?string $file,?string $name=null){
+        if (empty($file))return false;
         $objectMeta = $this->_oss->getObjectMeta($this->_bucket,$file);
         if (isset($objectMeta['Content-type'])){
             $this->_sendMimeHeader($objectMeta['Content-type']);

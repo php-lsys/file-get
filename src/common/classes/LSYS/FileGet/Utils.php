@@ -16,7 +16,7 @@ trait Utils{
         }
         if(!$safe)throw new Exception(__("file can't access[:path]",array(":path"=>$filepath)));
     }
-    protected function _sendNameHeader($name,$user_agent=null){
+    protected function _sendNameHeader(string $name,?string $user_agent=null){
         if (headers_sent())return $this;
         $ua = isset($_SERVER['HTTP_USER_AGENT'])?isset($_SERVER['HTTP_USER_AGENT']):'';
         $user_agent=$user_agent?$user_agent:$ua;

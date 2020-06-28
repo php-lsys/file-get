@@ -24,12 +24,12 @@ class MongoDB implements FileGet {
         $this->_space=$config->get("space","default");
         $this->_mcon = $db->selectCollection($this->_space);
     }
-    public function url($file){
+    public function url(?string $file){
         if (empty($file))return null;
         $path=$this->_config->get("url");
         return $path.$file;
     }
-    public function download($file){
+    public function download(?string $file){
         if (empty($file))return null;
         list($space,$file)=$this->_split($file);
         if ($space!=$this->_space)return false;
@@ -52,7 +52,7 @@ class MongoDB implements FileGet {
         $this->_clear_file[]=$filename;
         return $filename;
     }
-    public function output($file,$name=null){
+    public function output(?string $file,?string $name=null){
         if (empty($file))return null;
         list($space,$file)=$this->_split($file);
         if ($space!=$this->_space)return false;

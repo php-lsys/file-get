@@ -16,7 +16,7 @@ class RemoteDisk extends Disk{
             @unlink($file);
         }
     }
-    public function download($file){
+    public function download(?string $file){
         $file=$this->url($file);
         if (!$file)return $file;
         
@@ -51,7 +51,7 @@ class RemoteDisk extends Disk{
         $this->_cache_file[]=$filename;
         return $filename;
     }
-    public function output($file,$name=null){
+    public function output(?string $file,?string $name=null){
         if (empty($file))return null;
         $file=$this->url($file);
         if (!$file)return $file;

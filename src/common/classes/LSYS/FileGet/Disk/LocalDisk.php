@@ -5,7 +5,7 @@ use function LSYS\FileGet\__;
 use LSYS\FileGet\Utils;
 class LocalDisk extends Disk{
     use Utils;
-    public function download($file){
+    public function download(?string $file){
         if (empty($file))return null;
         if (!$this->_config->exist("dir"))return FALSE;
         $dir=rtrim($this->_config->get("dir"),"\\/")."/";
@@ -14,7 +14,7 @@ class LocalDisk extends Disk{
         if (!is_file($filepath))return null;
         return $filepath;
     }
-    public function output($file,$name=null){
+    public function output(?string $file,?string $name=null){
         if (empty($file))return null;
         if (!$this->_config->exist("dir"))return FALSE;
         $dir=rtrim($this->_config->get("dir"),"\\/")."/";

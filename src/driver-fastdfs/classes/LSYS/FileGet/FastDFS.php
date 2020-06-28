@@ -17,12 +17,12 @@ class FastDFS implements FileGet{
     public function __construct(Config $config){
         $this->_config=$config;
     }
-    public function url($file){
+    public function url(?string $file){
         if (empty($file))return null;
         $path=$this->_config->get("url");
         return $path.$file;
     }
-    public function download($file){
+    public function download(?string $file){
         if (empty($file))return null;
         
         list($group,$file)=$this->_split($file);
@@ -42,7 +42,7 @@ class FastDFS implements FileGet{
         $this->_clear_file[]=$filename;
         return $filename;
     }
-    public function output($file,$name=null){
+    public function output(?string $file,?string $name=null){
         if (empty($file))return null;
         
         list($group,$file)=$this->_split($file);
